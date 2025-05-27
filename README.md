@@ -99,5 +99,23 @@ Example: A request from 1940-01-02 to 2025-05-26 is equivalent to 668 API calls.
 For this reason, the application performs strict date validation before sending any request to the external API to avoid exceeding rate limits.
 
 
+### Installation
+Docker must be installed on your system
 
-
+1. Clone the repository
+```
+  git clone https://github.com/PanuprasB/DateWordAndTemperatureStatsApi.git
+```
+2. Navigate to the project directory
+```
+cd DateWordAndTemperatureStatsApi/TaskApi
+```
+3. Build the Docker image
+```
+ docker-compose build
+```
+3. Run the application
+```
+docker-compose up
+```
+API will be accessible at http://localhost:8080
