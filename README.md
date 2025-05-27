@@ -1,0 +1,86 @@
+# Task API
+
+This Spring Boot application provides three core functionalities:
+1. Calculates the number of days between two dates
+2. Converts numbers into grammatically correct Lithuanian words
+3. Retrieves temperature statistics in Vilnius for a given date range
+
+## API Endpoints
+
+### 1. 
+**Endpoint**: `POST /api/numberOfDays`
+Calculates and returns the number of days between two provided dates.
+
+Constraints:
+Dates must be between 0000-01-01 and 9999-12-31
+Dates must be in YYYY-MM-DD format
+
+**Request Body**:
+```json
+{
+    "dateOne": "YYYY-MM-DD",
+    "dateTwo": "YYYY-MM-DD"
+}
+```
+Response:
+Returns the number of days between the two dates.
+
+### 2. 
+**Endpoint**: `POST /api/numberToWords`
+Endpoint: POST /api/numberToWords
+Converts a positive number less than one billion into grammatically correct Lithuanian text.
+
+Constraints:
+Accepts numbers from 1 to 999999999
+
+**Request Body**:
+```json
+{
+    "dateOne": "YYYY-MM-DD",
+    "dateTwo": "YYYY-MM-DD"
+}
+```
+Response:
+Returns the number as a Lithuanian phrase.
+
+### 3. 
+**Endpoint**: `POST /api/temperatureStatsForVilnius`
+Endpoint: POST /api/numberToWords
+Returns temperature statistics (average, minimum, and maximum) for Vilnius between two specified dates. Also converts each of these numbers into grammatically correct Lithuanian text.
+
+Constraints:
+Dates must be in YYYY-MM-DD format
+
+**Request Body**:
+```json
+{
+    "dateOne": "YYYY-MM-DD",
+    "dateTwo": "YYYY-MM-DD"
+}
+```
+**Response**:
+```json
+{
+   "averageTemperature": "double",
+    "minTemperature": "double",
+    "maxTemperature": "double",
+    "lithuanianTextAverageTemperature": "string",
+    "lithuanianTextMinTemperature": "string",
+    "lithuanianTextMaxTemperature": "string"
+}
+```
+
+Constraints:
+Dates must be in YYYY-MM-DD format.
+
+dateOne and dateTwo must be between 1940-01-02 and yesterday.
+
+dateOne cannot be after dateTwo.
+
+Dates can be the same.
+
+If only yesterday's date is requested, averageTemperature will be returned as null due to limitations in the external API .
+
+
+
+
