@@ -79,7 +79,24 @@ dateOne cannot be after dateTwo.
 
 Dates can be the same.
 
-If only yesterday's date is requested, averageTemperature will be returned as null due to limitations in the external API .
+If only yesterday's date is requested, averageTemperature will be returned as null due to limitations in the external API.
+
+
+## External API
+
+This endpoint uses the Open-Meteo Historical Weather API:
+https://open-meteo.com/en/docs/historical-weather-api
+
+API Notes:
+Provides historical weather data from 1940 up to the current day, though updates may be delayed by a couple of days.
+
+Rate Limit (Free Tier): 10,000 requests per day.
+
+Large date ranges count as multiple API calls:
+
+Example: A request from 1940-01-02 to 2025-05-26 is equivalent to 668 API calls.
+
+For this reason, the application performs strict date validation before sending any request to the external API to avoid exceeding rate limits.
 
 
 
